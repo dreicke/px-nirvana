@@ -1,0 +1,53 @@
+<!--
+    Relative paths assume component is being run from inside an app or another component, where dependencies are flat
+    siblings. When this component is run from its own repo (e.g. tests, examples), we assume the server is started with
+    'gulp serve' (or similar server setup) to enable correct finding of bower dependencies for local runs.
+-->
+<link rel="import" href="../polymer/polymer.html"/>
+<link rel="import" href="../px-tooltip/px-tooltip.html"/>
+
+<link rel="import" href="css/px-nirvana-styles.html">
+
+
+<!--
+REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
+
+##### Usage
+
+    <px-nirvana counter-value="1"></px-nirvana>
+
+@element px-nirvana
+@blurb REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
+@homepage index.html
+@demo index.html
+-->
+
+<dom-module id="px-nirvana">
+  <template>
+    <style include="px-nirvana-styles">
+        :host{
+            border: 1px solid red;
+            padding: 10px;
+            display: inline-block;
+            height: 500px;
+        }
+        .gray{
+            color: #dedede;
+        }
+        .blue{
+            color: blue;
+        }
+
+    </style>
+<!--     <a href="javascript:" on-click="handleClick">Click here to increment counter:</a>
+    <span>{{counterValue}}</span>
+    <button class="btn btn--primary" on-click="handleClick">Primary</button><br> -->
+    <label for="blah">Text</label>
+    <input id="blah" size$="{{boxSize}}" class="text-input" type="text" placeholder="Some stuff" on-KeyUp="handleType">
+    <button class="btn btn--primary" value="Submit" on-tap="handleTap">Submit</button>
+    <button id="clear-button" class="btn" value="Clear" on-tap="handleClear">Clear</button><br>
+    <px-tooltip for="clear-button" delay="200" tooltip-message="This'll clear your palette" orientation="auto" tooltip-style="dark"></px-tooltip>
+    <span class$="[[_getTextStyle(textStyle)]]">{{fieldMessage}}</span>
+  </template>
+</dom-module>
+<script src="dist/px-nirvana.js"></script>
