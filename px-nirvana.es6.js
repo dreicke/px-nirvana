@@ -19,6 +19,11 @@
         notify: true,
         value: " "
       },
+      pressedMessage: {
+        type: String,
+        notify: true,
+        value: " "
+      },
       boxSize: {
         type: Number,
         notify: true,
@@ -41,18 +46,19 @@
     },
 
     handleTap: function() {
-      this.fieldMessage = this.$.blah.value;
+      this.pressedMessage = this.$.blah.value;
     },
 
     handleClear: function() {
       this.fieldMessage = ""; 
       this.$.blah.value = " ";
+      this.pressedMessage = "";
     },
 
     handleType: function() {
       this.fieldMessage = this.$.blah.value;
-      if (this.fieldMessage.length > this.maxCharacters){
-        alert('too long brah');
+      if (this.fieldMessage.length == this.maxCharacters){
+        this.$.blah.className += " validation-error";
       };
     },
 

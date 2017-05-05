@@ -38,16 +38,21 @@ REPLACE THIS TEXT WITH A COMPONENT DESCRIPTION
             color: blue;
         }
 
+        .validation-error{
+            border: 1px solid red !important;
+        }
+
     </style>
 <!--     <a href="javascript:" on-click="handleClick">Click here to increment counter:</a>
     <span>{{counterValue}}</span>
     <button class="btn btn--primary" on-click="handleClick">Primary</button><br> -->
     <label for="blah">Text</label>
-    <input id="blah" size$="{{boxSize}}" class="text-input" type="text" placeholder="Some stuff" on-KeyUp="handleType">
+    <input id="blah" size$="{{boxSize}}" class="text-input" type="text" placeholder="Some stuff" maxlength$="{{maxCharacters}}" on-KeyUp="handleType">
     <button class="btn btn--primary" value="Submit" on-tap="handleTap">Submit</button>
     <button id="clear-button" class="btn" value="Clear" on-tap="handleClear">Clear</button><br>
     <px-tooltip for="clear-button" delay="200" tooltip-message="This'll clear your palette" orientation="auto" tooltip-style="dark"></px-tooltip>
-    <span class$="[[_getTextStyle(textStyle)]]">{{fieldMessage}}</span>
+    <span class$="[[_getTextStyle(textStyle)]]">{{fieldMessage}}</span><br>
+    <span id="onpress" class$="[[_getTextStyle(textStyle)]]">{{pressedMessage}}</span>
   </template>
 </dom-module>
 <script src="dist/px-nirvana.js"></script>
